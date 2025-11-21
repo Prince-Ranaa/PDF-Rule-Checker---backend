@@ -10,7 +10,10 @@ const groq = new Groq({ apiKey: process.env.GROQ_API_KEY });
 const app = express();
 
 app.use(cors({
-    origin: "http://localhost:3000",
+    origin: [
+        "http://localhost:3000",
+        "https://pdf-rule-checker-frontend.vercel.app"
+    ],
     methods: ["POST", "GET"],
 }));
 app.use(express.json());
